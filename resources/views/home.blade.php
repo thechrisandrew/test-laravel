@@ -15,12 +15,12 @@
                         @endif
 
                         @foreach ($Posts as $post)
-                            {{ $post->user_id }}
+                            {{ $post->user->username }}
                             <br>
                             {{ $post->text }}
                             <br>
-                            {{ $post->image_link }}
-                            <br>
+                            {{ $post->created_at }}
+                            <br><br>
                         @endforeach
 
                     </div>

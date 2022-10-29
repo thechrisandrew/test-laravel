@@ -23,4 +23,8 @@ class Post extends Model
         'like_count'
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
