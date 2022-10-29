@@ -14,7 +14,15 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        @foreach ($Posts as $post)
+                            {{ $post->user_id }}
+                            <br>
+                            {{ $post->text }}
+                            <br>
+                            {{ $post->image_link }}
+                            <br>
+                        @endforeach
+
                     </div>
                 </div>
             </div>

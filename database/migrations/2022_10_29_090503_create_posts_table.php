@@ -20,8 +20,8 @@ return new class extends Migration
             $table->uuid('id')->primary()->default(DB::raw('(UUID())'));
             $table->foreignIdFor(User::class);
             $table->text('text');
-            $table->string('imageLink')->nullable();
-            $table->integer('likeCount');
+            $table->string('image_link')->nullable();
+            $table->integer('like_count')->default(0);
             $table->timestamps();
         });
     }

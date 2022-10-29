@@ -17,8 +17,10 @@ class Post extends Model
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
+        'user_id',
         'text',
-        'imageLink'
+        'image_link',
+        'like_count'
     ];
 
 }
