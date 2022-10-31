@@ -17,7 +17,7 @@ RUN apk update && apk add --no-cache \
     libjpeg-turbo-dev
 
 # configure packages
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg   
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 
 # compile native PHP packages
 RUN docker-php-ext-install \
