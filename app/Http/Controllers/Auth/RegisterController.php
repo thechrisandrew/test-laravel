@@ -79,7 +79,7 @@ class RegisterController extends Controller
         Avatar::create($data['username'])->save(storage_path('app/public/avatar-' . $user->id . '.png'));
 
         // checks if filesystem disk is s3
-        if (env('FILESYSTEM_DISK') == 's3') {
+        if (config('filesystems.default') == 's3') {
             // get user avatar from storage path and insert to s3
             $contents = Storage::disk('local')->get('public/avatar-' . $user->id . '.png');
             Storage::put('public/avatar-' . $user->id . '.png', $contents);

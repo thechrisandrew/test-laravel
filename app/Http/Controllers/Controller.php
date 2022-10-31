@@ -14,7 +14,8 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function getUserAvatar(string $user_id) {
-        if (env('FILESYSTEM_DISK') == 's3'){
+
+        if (config('filesystems.default') == 's3'){
             if(Storage::disk('s3')->exists('public/avatar-' . $user_id . '.png')) {
                 $avatarUrl = Storage::temporaryUrl(
                     'public/avatar-' . $user_id . '.png', now()->addMinutes(5)
@@ -25,7 +26,7 @@ class Controller extends BaseController
             }
         }
 
-        if(env('FILESYSTEM_DISK') == 'local') {
+        if(config('filesystems.default') == 'local') {
             if(Storage::disk('local')->exists('public/avatar-' . $user_id . '.png')) {
                 $avatarUrl = Storage::url('public/avatar-' . $user_id . '.png');
             } else {
