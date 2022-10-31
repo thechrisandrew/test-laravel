@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  app:
+    image: localhost/vincenttjia/laravel:latest
+    restart: unless-stopped
+    environment:
+    - APP_ENV=production
+    - DB_HOST=
+    - DB_DATABASE=
+    - DB_USERNAME=
+    - DB_PASSWORD=
+    - FILESYSTEM_DISK=
+    - AWS_DEFAULT_REGION=
+    - AWS_BUCKET=
+    ports:
+      - "80:80"
