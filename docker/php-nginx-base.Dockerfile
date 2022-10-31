@@ -15,7 +15,10 @@ RUN apk update && apk add --no-cache \
     freetype-dev \
     $PHPIZE_DEPS \
     libjpeg-turbo-dev
-    
+
+# configure packages
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg   
+
 # compile native PHP packages
 RUN docker-php-ext-install \
     gd \
@@ -23,10 +26,7 @@ RUN docker-php-ext-install \
     bcmath \
     mysqli \
     pdo_mysql
-    
-# configure packages
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-
+   
 # install additional packages from PECL
 RUN pecl install zip && docker-php-ext-enable zip \
     && pecl install igbinary && docker-php-ext-enable igbinary \

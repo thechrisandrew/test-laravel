@@ -13,6 +13,7 @@ set -e
     echo pm.max_spare_servers = "$FPM_PM_MAX_SPARE_SERVERS"; \
 } > /usr/local/etc/php-fpm.d/zzz-app.conf
 
+cp /var/www/app/.env.example /var/www/app/.env
 cd /var/www/app/ && composer dump-autoload
 cd /var/www/app/ && php artisan config:cache
 
